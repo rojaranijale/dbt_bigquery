@@ -1,6 +1,6 @@
 WITH extracted_numbers AS (
   SELECT 
-    Hours_of_Videos_Uploaded_on_YouTube_Every_Day,
+    Year_new,Hours_of_Videos_Uploaded_on_YouTube_Every_Day,
     -- Extract the numeric value until the first space
     CAST(REGEXP_REPLACE(REGEXP_EXTRACT(Hours_of_Videos_Uploaded_on_YouTube_Every_Day, r'([\d,]+)\s*.*'), ',', '') AS INT64) AS extracted_number
   FROM
@@ -9,5 +9,5 @@ WITH extracted_numbers AS (
 
 SELECT
   Hours_of_Videos_Uploaded_on_YouTube_Every_Day,
-  extracted_number
+  extracted_number,Year_new
 FROM extracted_numbers
